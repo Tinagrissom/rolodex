@@ -1,24 +1,35 @@
-import { Component } from 'react'
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
-
   constructor() {
     super();
 
     this.state = {
-      string: 'Hello Tina'
-    }
+      contacts: [
+        {
+          name: 'Shirley',
+          id: 'asc1'
+        },
+        {
+          name: 'Christopher',
+          id: 'asr4'
+        },
+        {
+          name: 'Dana',
+          id: 'ast6'
+        }
+      ]
+    };
   }
 
   render() {
     return (
       <div>
-    <h1>{this.state.string}</h1>
-    <button onClick={() => this.setState({ string: 'Hello You' })}>Change Text</button>
-    </div>
-    )
+        {this.state.contacts.map(contact => <h1 key={contact.id}> { contact.name } </h1>)}
+      </div>
+    );
   }
 }
 
