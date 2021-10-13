@@ -10,6 +10,7 @@ class App extends Component {
 
     this.state = {
       contacts: [],
+      searchField: "",
     };
   }
 
@@ -22,6 +23,11 @@ class App extends Component {
   render() {
     return (
       <div>
+        <input
+          type="search"
+          placeholder="search contacts"
+          onChange={(e) => this.setState({ searchField: e.target.value })}
+        />
         <CardList contacts={this.state.contacts} />
       </div>
     );
@@ -29,3 +35,8 @@ class App extends Component {
 }
 
 export default App;
+
+          // setState is an asynchronous function call
+          // synchronous is an action that happens almost immediately
+          // asynchronous takes an indefinite amount of time, so the rest of the code will
+          // run and then JavaScript will execute the asynchronous function
