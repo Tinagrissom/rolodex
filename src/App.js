@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 import { CardList } from "./components/card-list/card-list.component";
+import { SearchBar } from "./components/search-bar/search-bar.component";
 
 import "./App.css";
 
@@ -26,15 +27,14 @@ class App extends Component {
     // same as
     // const contacts = this.state.contacts
 
-    const filteredContacts = contacts.filter(contact => 
+    const filteredContacts = contacts.filter((contact) =>
       contact.name.toLowerCase().includes(searchField.toLocaleLowerCase())
-      )
+    );
     return (
-      <div>
-        <input
-          type="search"
+      <div className='App'>
+        <SearchBar
           placeholder="search contacts"
-          onChange={(e) => this.setState({ searchField: e.target.value })}
+          handleChange={(e) => this.setState({ searchField: e.target.value })}
         />
         <CardList contacts={filteredContacts} />
       </div>
@@ -44,10 +44,10 @@ class App extends Component {
 
 export default App;
 
-          // setState is an asynchronous function call
-          // synchronous is an action that happens almost immediately (JS knows how long it will take)
-          // asynchronous takes an indefinite amount of time, so the rest of the code will
-          // run and then JavaScript will execute the asynchronous function
+// setState is an asynchronous function call
+// synchronous is an action that happens almost immediately (JS knows how long it will take)
+// asynchronous takes an indefinite amount of time, so the rest of the code will
+// run and then JavaScript will execute the asynchronous function
 
-          // React has synthetic events - when a DOM event happens, react will intercept
-          // onChange is an example of a synthetic event through react
+// React has synthetic events - when a DOM event happens, react will intercept
+// onChange is an example of a synthetic event through react
