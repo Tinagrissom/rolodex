@@ -21,6 +21,10 @@ class App extends Component {
       .then((users) => this.setState({ contacts: users }));
   }
 
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value })
+  }
+
   render() {
     const { contacts, searchField } = this.state;
     // destructuring in order to pull values and set to a const
@@ -30,11 +34,12 @@ class App extends Component {
     const filteredContacts = contacts.filter((contact) =>
       contact.name.toLowerCase().includes(searchField.toLocaleLowerCase())
     );
+
     return (
       <div className='App'>
         <SearchBar
           placeholder="search contacts"
-          handleChange={(e) => this.setState({ searchField: e.target.value })}
+          handleChange={this.handleChange}
         />
         <CardList contacts={filteredContacts} />
       </div>
