@@ -24,6 +24,11 @@
   color: white;
 }
 
+.Title {
+  font-family: roboto;
+  font-size: 62px;
+}
+
 .App-link {
   color: #61dafb;
 }
